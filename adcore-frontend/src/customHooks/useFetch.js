@@ -1,20 +1,21 @@
 import React, { useState, useEffect, useCallback } from "react";
 
 const useFetch = (url) => {
-  const [spacecrafts, setSpacecrafts] = useState([]);
+  const [dataCollection, setDataCollection] = useState([]);
 
-  const getSpacecrafts = useCallback(async () => {
+  const getData = useCallback(async () => {
     const response = await fetch(url);
-    const spacecrafts = await response.json();
+    const dataCollection = await response.json();
 
-    setSpacecrafts(spacecrafts);
+    console.log(dataCollection);
+    setDataCollection(dataCollection);
   }, [url]);
 
   useEffect(() => {
-    getSpacecrafts();
+    getData();
   }, [url]);
 
-  return { spacecrafts };
+  return { dataCollection };
 };
 
 export default useFetch;

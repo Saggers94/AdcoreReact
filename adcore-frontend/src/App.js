@@ -2,13 +2,13 @@ import "./App.css";
 import HeaderComponent from "./components/HeaderComponent";
 import FooterComponent from "./components/FooterComponent";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import HomeComponent from "./components/HomeComponent";
 import DataCollectionComponent from "./components/DataCollectionComponent";
 import DetailDataComponent from "./components/DetailDataComponent";
 import AboutComponent from "./components/AboutComponent";
 import ContactComponent from "./components/ContactComponent";
 import LoginComponent from "./components/LoginComponent";
 import RegisterComponent from "./components/RegisterComponent";
+import CreateComponent from "./components/CreateComponent";
 
 function App() {
   return (
@@ -17,13 +17,16 @@ function App() {
         <HeaderComponent />
         <Switch>
           <Route exact path="/">
-            <HomeComponent />
-          </Route>
-          <Route exact path="/spacecrafts">
             <DataCollectionComponent />
           </Route>
-          <Route exact path="/spacecrafts/:id">
+          <Route exact path="/data">
+            <DataCollectionComponent />
+          </Route>
+          <Route exact path="/data/:id">
             <DetailDataComponent />
+          </Route>
+          <Route exact path="/create">
+            <CreateComponent />
           </Route>
           <Route exact path="/about">
             <AboutComponent />

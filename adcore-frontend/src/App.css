@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .App-logo {
@@ -35,4 +35,28 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+nav {
+  background-color: #fe852a !important;
+}
+
+img {
+  height: 200px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+#common {
+  background-color: #fe852a !important;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  margin-top: 30px;
+}
+
+#data {
+  margin-bottom: 50px;
+  margin-top: 50px;
 }

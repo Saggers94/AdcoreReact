@@ -1,39 +1,25 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+import useFetch from "../customHooks/useFetch";
 
-const url = "https://localhost:9090/adcore/api/data";
+const baseURL = "http://localhost:9090/adcore/api/data/";
 
 const DetailDataComponent = () => {
   const { id } = useParams();
   const [data, setData] = useState({});
+  console.log(id);
+  const extendedURL = baseURL + id;
 
-  const getData = async () => {
-    const { fetchedData } = await axios.get(url + id);
-    setData(fetchedData);
-    return data;
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
-
-  //   fetch(url + id)
-  //     .then((res) => {
-  //       return res.json();
-  //     })
-  //     .then((data) => {
-  //       setSpacecraft(data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
+  fetch(extendedURL)
+    .then((res) => res.json())
+    .then((data) => setData(data))
+    .catch((err) => console.log(err));
 
   return (
     <div class="container">
       <h1 class="font-weight-light mt-4">
         <strong>Data: </strong>
-        {Data.name}
+        {data.name}
       </h1>
       <hr />
 
@@ -46,7 +32,7 @@ const DetailDataComponent = () => {
           />
         </div> */}
 
-        <div class="col-lg-5">
+        <div className="col-lg-12" id="data">
           <p>
             <strong>Description: </strong>
             {data.description}
@@ -55,14 +41,9 @@ const DetailDataComponent = () => {
             <strong>Parent: </strong>
             {data.parent}
           </p>
-        </div>
-      </div>
-
-      <div class="row align-items-center" id="data">
-        <div class="col-lg-12">
           <p>
             <strong>Read Only: </strong>
-            {data.read_only}
+            {data.read_only ? "Read Only Data" : "Confidential Data"}
           </p>
           <p>
             <strong>Created: </strong>

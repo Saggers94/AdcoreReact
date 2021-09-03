@@ -7,7 +7,7 @@ const HeaderComponent = () => {
       <nav class="navbar navbar-expand-lg navbar-dark static-top">
         <div class="container">
           <a class="navbar-brand" href="#">
-            NASA Spacecrafts
+            Adcore Exam
           </a>
           <button
             class="navbar-toggler"
@@ -22,20 +22,14 @@ const HeaderComponent = () => {
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item ">
-                <Link class="nav-link" to="/">
-                  Home
-                  <span class="sr-only">(current)</span>
+              <li class="nav-item">
+                <Link class="nav-link" to="/data">
+                  Data-Collection
                 </Link>
               </li>
               <li class="nav-item">
-                <Link class="nav-link" to="/spacecrafts">
-                  Spacecrafts
-                </Link>
-              </li>
-              <li class="nav-item">
-                <Link class="nav-link" to="/about">
-                  About
+                <Link class="nav-link" to="/create">
+                  Create-Data
                 </Link>
               </li>
 
