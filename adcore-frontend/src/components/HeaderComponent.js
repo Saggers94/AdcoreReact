@@ -28,12 +28,12 @@ const HeaderComponent = () => {
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
                 <Link class="nav-link" to="/data">
-                  Data-Collection
+                  Node-Collection
                 </Link>
               </li>
               <li class="nav-item">
                 <Link class="nav-link" to="/create">
-                  Create-Data
+                  Create-Node
                 </Link>
               </li>
 
