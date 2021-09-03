@@ -25,7 +25,6 @@ const DataCollectionComponent = () => {
     setDeleted(false);
   };
 
-  console.log(dataCollection);
   if (dataCollection.length == 0) {
     return (
       <div class="container">
@@ -54,7 +53,12 @@ const DataCollectionComponent = () => {
             }
           >
             <div class="col-lg-12">
-              <h2 class="font-weight-light">{data.name}</h2>
+              <h2 class="font-weight-light">
+                {data.name}{" "}
+                <i style={{ fontSize: "18px" }}>
+                  {data.read_only == false ? `(Uneditable)` : ""}
+                </i>
+              </h2>
               <p>
                 <strong>Description: </strong>
                 {data.description}
@@ -74,7 +78,7 @@ const DataCollectionComponent = () => {
                 >
                   Add Node
                 </Link>
-                {data.read_only == true && (
+                {data.read_only ? (
                   <>
                     <Link
                       class="btn btn-secondary"
@@ -91,6 +95,8 @@ const DataCollectionComponent = () => {
                       Delete Node
                     </button>
                   </>
+                ) : (
+                  <></>
                 )}
               </div>
             </div>
