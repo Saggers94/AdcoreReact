@@ -1,13 +1,92 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams, useLocation, useHistory } from "react-router-dom";
 
-const CreateComponent = () => {
+const createURL = "http://localhost:9090/adcore/api/add";
+const getURL = "http://localhost:9090/adcore/api/data/";
+const updateURL = "http://localhost:9090/adcore/api/update/";
+
+const CreateUpdateComponent = () => {
+  const [eData, setEData] = useState({});
   const [name, setName] = useState("");
   const [description, setDescirption] = useState("");
   const [parent, setParent] = useState(0);
   const [readOnly, setReadOnly] = useState(false);
 
+  const { id } = useParams();
+  const location = useLocation();
+  const history = useHistory();
+
+  let extendedURL = "";
+
+  if (id > 0) {
+    extendedURL = getURL + id;
+  }
+
+  useEffect(() => {
+    fetch(extendedURL)
+      .then((res) => res.json())
+      .then((d) => {
+        setEData(d);
+        setName(d.name);
+        setDescirption(d.description);
+        setParent(d.parent);
+        setReadOnly(d.read_only);
+      })
+      .catch((err) => console.log(err));
+  }, [id]);
+
+  // console.log(eData.name ? eData.name : "");
+
   const handleInputReadOnlyChange = () => {
     setReadOnly(!readOnly);
+  };
+
+  const handleUpdateSubmit = (event) => {
+    event.preventDefault();
+    const date = new Date();
+    const updatedData = {
+      name: name,
+      description: description,
+      parent: parent,
+      read_only: readOnly,
+    };
+    console.log(updatedData);
+
+    fetch(updateURL + id, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedData),
+    })
+      .then((res) => res)
+      .catch((err) => {
+        console.log(err);
+      });
+    history.push(`/data/${id}`);
+  };
+
+  const handleCreateSubmit = (event) => {
+    event.preventDefault();
+    const createdData = {
+      name: name,
+      description: description,
+      parent: parent,
+      read_only: readOnly,
+    };
+    console.log(createdData);
+
+    fetch(createURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(createdData),
+    })
+      .then((res) => res)
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -20,7 +99,9 @@ const CreateComponent = () => {
             </div>
 
             <div class="card-body">
-              <form>
+              <form
+                onSubmit={eData.name ? handleUpdateSubmit : handleCreateSubmit}
+              >
                 <div class="form-group mb-2">
                   <label for="name">
                     <b>Name</b>
@@ -31,10 +112,8 @@ const CreateComponent = () => {
                     class="form-control "
                     name="name"
                     value={name}
-                    onChange={(newName) => setName(newName)}
+                    onChange={(event) => setName(event.target.value)}
                     required
-                    autocomplete="name"
-                    autofocus
                   />
                 </div>
 
@@ -47,7 +126,7 @@ const CreateComponent = () => {
                     class="form-control"
                     name="description"
                     value={description}
-                    onChange={(desc) => setDescirption(desc)}
+                    onChange={(event) => setDescirption(event.target.value)}
                     required
                   />
                 </div>
@@ -62,7 +141,7 @@ const CreateComponent = () => {
                     class="form-control"
                     name="parent"
                     value={parent}
-                    onChange={(newParent) => setParent(newParent)}
+                    onChange={(event) => setParent(event.target.value)}
                     required
                   />
                 </div>
@@ -82,7 +161,7 @@ const CreateComponent = () => {
                 </div>
 
                 <button type="submit" class="btn btn-primary mt-3">
-                  Create
+                  {eData.name ? "Update" : "Create"}
                 </button>
               </form>
             </div>
@@ -93,4 +172,4 @@ const CreateComponent = () => {
   );
 };
 
-export default CreateComponent;
+export default CreateUpdateComponent;

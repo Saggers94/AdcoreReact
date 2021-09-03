@@ -8,7 +8,8 @@ import AboutComponent from "./components/AboutComponent";
 import ContactComponent from "./components/ContactComponent";
 import LoginComponent from "./components/LoginComponent";
 import RegisterComponent from "./components/RegisterComponent";
-import CreateComponent from "./components/CreateComponent";
+import CreateComponent from "./components/CreateUpdateComponent";
+import CreateUpdateComponent from "./components/CreateUpdateComponent";
 
 function App() {
   return (
@@ -24,6 +25,12 @@ function App() {
           </Route>
           <Route exact path="/data/:id">
             <DetailDataComponent />
+          </Route>
+          <Route exact path="/add">
+            <CreateUpdateComponent />
+          </Route>
+          <Route exact path="/update/:id">
+            <CreateUpdateComponent />
           </Route>
           <Route exact path="/create">
             <CreateComponent />

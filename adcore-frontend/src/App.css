@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #302732;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -38,7 +38,7 @@
 }
 
 nav {
-  background-color: #fe852a !important;
+  background-color: #302732 !important;
 }
 
 img {
@@ -48,7 +48,7 @@ img {
 }
 
 #common {
-  background-color: #fe852a !important;
+  background-color: #302732 !important;
   position: fixed;
   width: 100%;
   left: 0;
@@ -57,6 +57,6 @@ img {
 }
 
 #data {
-  margin-bottom: 50px;
+  margin-bottom: 70px;
   margin-top: 50px;
 }

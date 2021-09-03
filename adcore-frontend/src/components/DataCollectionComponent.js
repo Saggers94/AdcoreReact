@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import useFetch from "../customHooks/useFetch";
+import { Link } from "react-router-dom";
 
 const url = "http://localhost:9090/adcore/api/data";
 
@@ -12,7 +13,16 @@ const DataCollectionComponent = () => {
       <hr />
       {dataCollection &&
         dataCollection.map((data) => (
-          <div class="row align-items-center" key={data.data_id} id="data">
+          <div
+            class="row align-items-center"
+            key={data.data_id}
+            id="data"
+            style={
+              data.data_id == dataCollection.length
+                ? { marginBottom: "150px" }
+                : {}
+            }
+          >
             {/* <div class="col-lg-7">
             <img
               class="img-fluid rounded mb-4 mb-lg-0"
@@ -27,9 +37,18 @@ const DataCollectionComponent = () => {
                 <strong>Description: </strong>
                 {data.description}
               </p>
-              <a class="btn btn-primary" href={`/data/${data.data_id}`}>
-                Detailed Information
-              </a>
+              <div class="col">
+                <Link
+                  class="btn btn-primary"
+                  style={{ marginRight: "5px" }}
+                  to={`/data/${data.data_id}`}
+                >
+                  Detailed Information
+                </Link>
+                <Link class="btn btn-primary" to={`/update/${data.data_id}`}>
+                  Update Information
+                </Link>
+              </div>
             </div>
           </div>
         ))}
