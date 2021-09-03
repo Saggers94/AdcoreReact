@@ -6,8 +6,12 @@ const HeaderComponent = () => {
     <React.Fragment>
       <nav class="navbar navbar-expand-lg navbar-dark static-top">
         <div class="container">
-          <Link class="nav-link" to="/">
-            Adcore Exam
+          <Link
+            class="nav-link"
+            style={{ color: "6DA7FA", fontSize: "20px" }}
+            to="/"
+          >
+            <b>ADCORE (Exam)</b>
           </Link>
           <button
             class="navbar-toggler"

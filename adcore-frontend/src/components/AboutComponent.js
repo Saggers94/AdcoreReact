@@ -7,9 +7,10 @@ const AboutComponent = () => {
         <div class="col-lg-12 text-center">
           <h1 class="mt-5">About This Website</h1>
           <p class="lead">
-            This website is the proof of my Professional Skills, ability to work
-            under time constraint, programming experience and independent
-            problem solving.
+            This website with a front end of React.js, bootstrap and backend Api
+            in java springboot/hibernate and is the proof of my Professional
+            Skills, ability to work under time constraint, programming
+            experience and independent problem solving.
           </p>
         </div>
       </div>

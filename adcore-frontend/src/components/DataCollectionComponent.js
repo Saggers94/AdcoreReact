@@ -25,6 +25,15 @@ const DataCollectionComponent = () => {
     setDeleted(false);
   };
 
+  console.log(dataCollection);
+  if (dataCollection.length == 0) {
+    return (
+      <div class="container">
+        <h1 class="mt-4">No Data Found!</h1>
+      </div>
+    );
+  }
+
   return (
     <div class="container">
       <h1 class="mt-4">
