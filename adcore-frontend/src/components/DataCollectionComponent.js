@@ -74,20 +74,24 @@ const DataCollectionComponent = () => {
                 >
                   Add Node
                 </Link>
-                <Link
-                  class="btn btn-secondary"
-                  style={{ marginRight: "5px" }}
-                  to={`/update/${data.data_id}`}
-                >
-                  Update Node
-                </Link>
+                {data.read_only == true && (
+                  <>
+                    <Link
+                      class="btn btn-secondary"
+                      style={{ marginRight: "5px" }}
+                      to={`/update/${data.data_id}`}
+                    >
+                      Update Node
+                    </Link>
 
-                <button
-                  class="btn btn-danger"
-                  onClick={() => handleDelete(data.data_id)}
-                >
-                  Delete Node
-                </button>
+                    <button
+                      class="btn btn-danger"
+                      onClick={() => handleDelete(data.data_id)}
+                    >
+                      Delete Node
+                    </button>
+                  </>
+                )}
               </div>
             </div>
           </div>
