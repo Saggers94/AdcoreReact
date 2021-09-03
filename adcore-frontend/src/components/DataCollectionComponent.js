@@ -1,37 +1,17 @@
 import React, { useState } from "react";
 import useFetch from "../customHooks/useFetch";
 import { Link } from "react-router-dom";
-import { CSVLink } from "react-csv";
 
 const url = "http://localhost:9090/adcore/api/data";
 
 const DataCollectionComponent = () => {
   const { dataCollection } = useFetch(url);
 
-  // console.log(dataCollection);
-  const headers = [
-    { label: "ID", key: "data_id" },
-    { label: "Name", key: "name" },
-    { label: "Description", key: "description" },
-    { label: "Parent", key: "parent" },
-    { label: "Read-Only", key: "read_only" },
-    { label: "Created", key: "created" },
-    { label: "Updated", key: "updated" },
-  ];
-
-  const csvReport = {
-    filename: "Data-Collection-From-Adcore.csv",
-    headers: headers,
-    data: dataCollection,
-  };
-
   return (
     <div class="container">
       <h1 class="mt-4">
         Data Collection From Adcore{" "}
-        <button class="btn btn-success">
-          <CSVLink {...csvReport}>Export To CSV</CSVLink>
-        </button>
+        <a href="http://localhost:9090/adcore/api/download">Download CSV</a>
       </h1>
       <hr />
       {dataCollection &&
@@ -66,10 +46,17 @@ const DataCollectionComponent = () => {
                   style={{ marginRight: "5px" }}
                   to={`/data/${data.data_id}`}
                 >
-                  Detailed Information
+                  Node Detail
                 </Link>
-                <Link class="btn btn-primary" to={`/update/${data.data_id}`}>
-                  Update Information
+                <Link
+                  class="btn btn-secondary"
+                  style={{ marginRight: "5px" }}
+                  to={`/update/${data.data_id}`}
+                >
+                  Update Node
+                </Link>
+                <Link class="btn btn-info" to={`/add`}>
+                  Add Node
                 </Link>
               </div>
             </div>

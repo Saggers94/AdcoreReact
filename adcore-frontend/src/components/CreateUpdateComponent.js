@@ -9,7 +9,7 @@ const CreateUpdateComponent = () => {
   const [eData, setEData] = useState({});
   const [name, setName] = useState("");
   const [description, setDescirption] = useState("");
-  const [parent, setParent] = useState(0);
+  const [parent, setParent] = useState(null);
   const [readOnly, setReadOnly] = useState(false);
 
   const { id } = useParams();
@@ -87,6 +87,10 @@ const CreateUpdateComponent = () => {
       .catch((err) => {
         console.log(err);
       });
+    setName("");
+    setDescirption("");
+    setParent(0);
+    setReadOnly(false);
   };
 
   return (
@@ -108,6 +112,7 @@ const CreateUpdateComponent = () => {
                   </label>
                   <input
                     id="name"
+                    placeholder="Node Name"
                     type="text"
                     class="form-control "
                     name="name"
@@ -123,6 +128,7 @@ const CreateUpdateComponent = () => {
                   </label>
                   <textarea
                     id="description"
+                    placeholder="Node Description"
                     class="form-control"
                     name="description"
                     value={description}
@@ -138,7 +144,9 @@ const CreateUpdateComponent = () => {
                   <input
                     id="parent"
                     type="number"
+                    placeholder="Node Parent"
                     class="form-control"
+                    min="0"
                     name="parent"
                     value={parent}
                     onChange={(event) => setParent(event.target.value)}
