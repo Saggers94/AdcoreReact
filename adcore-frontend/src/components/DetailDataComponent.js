@@ -17,7 +17,7 @@ const DetailDataComponent = () => {
   return (
     <div class="container">
       <h1 class="font-weight-light mt-4">
-        <strong>Data: </strong>
+        <strong>Name: </strong>
         {data.name}
       </h1>
       <hr />

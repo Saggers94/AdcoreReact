@@ -1,11 +1,29 @@
-import React from "react";
-import useFetch from "../customHooks/useFetch";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const url = "http://localhost:9090/adcore/api/data";
+const baseUrl = "http://localhost:9090/adcore/api/";
 
 const DataCollectionComponent = () => {
-  const { dataCollection } = useFetch(url);
+  const [dataCollection, setDataCollection] = useState([]);
+  const [deleted, setDeleted] = useState(false);
+
+  useEffect(() => {
+    fetch(baseUrl + "data")
+      .then((res) => res.json())
+      .then((data) => setDataCollection(data))
+      .catch((err) => console.log(err));
+  }, [deleted]);
+
+  const handleDelete = async (id) => {
+    if (window.confirm("Are you sure you want to delete?")) {
+      fetch(`${baseUrl}/delete/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => setDeleted(true))
+        .catch((err) => console.log(err));
+    }
+    setDeleted(false);
+  };
 
   return (
     <div class="container">
@@ -26,7 +44,7 @@ const DataCollectionComponent = () => {
                 : {}
             }
           >
-            <div class="col-lg-5">
+            <div class="col-lg-12">
               <h2 class="font-weight-light">{data.name}</h2>
               <p>
                 <strong>Description: </strong>
@@ -34,11 +52,18 @@ const DataCollectionComponent = () => {
               </p>
               <div class="col">
                 <Link
-                  class="btn btn-primary"
+                  class="btn btn-info"
                   style={{ marginRight: "5px" }}
                   to={`/data/${data.data_id}`}
                 >
                   Node Detail
+                </Link>
+                <Link
+                  class="btn btn-success"
+                  style={{ marginRight: "5px" }}
+                  to={`/add`}
+                >
+                  Add Node
                 </Link>
                 <Link
                   class="btn btn-secondary"
@@ -47,9 +72,13 @@ const DataCollectionComponent = () => {
                 >
                   Update Node
                 </Link>
-                <Link class="btn btn-info" to={`/add`}>
-                  Add Node
-                </Link>
+
+                <button
+                  class="btn btn-danger"
+                  onClick={() => handleDelete(data.data_id)}
+                >
+                  Delete Node
+                </button>
               </div>
             </div>
           </div>
