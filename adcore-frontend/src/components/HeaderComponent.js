@@ -6,9 +6,9 @@ const HeaderComponent = () => {
     <React.Fragment>
       <nav class="navbar navbar-expand-lg navbar-dark static-top">
         <div class="container">
-          <a class="navbar-brand" href="#">
+          <Link class="nav-link" to="/">
             Adcore Exam
-          </a>
+          </Link>
           <button
             class="navbar-toggler"
             type="button"
@@ -34,20 +34,10 @@ const HeaderComponent = () => {
               </li>
 
               <li class="nav-item">
-                <Link class="nav-link" to="/contact">
-                  Contact
+                <Link class="nav-link" to="/about">
+                  About
                 </Link>
               </li>
-              {/* <li class="nav-item">
-                <Link class="nav-link" to="/login">
-                  Login
-                </Link>
-              </li>
-              <li class="nav-item">
-                <Link class="nav-link" to="/register">
-                  Register
-                </Link>
-              </li> */}
             </ul>
           </div>
         </div>

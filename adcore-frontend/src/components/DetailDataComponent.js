@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import useFetch from "../customHooks/useFetch";
 
 const baseURL = "http://localhost:9090/adcore/api/data/";
 
@@ -24,14 +23,6 @@ const DetailDataComponent = () => {
       <hr />
 
       <div class="row align-items-center">
-        {/* <div class="col-lg-7">
-          <img
-            class="img-fluid rounded mb-4 mb-lg-0"
-            src={`/images/${spacecraft.spacecraft_image}`}
-            alt={spacecraft.spacecraft_name}
-          />
-        </div> */}
-
         <div className="col-lg-12" id="data">
           <p>
             <strong>Description: </strong>

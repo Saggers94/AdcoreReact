@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useLocation, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 const createURL = "http://localhost:9090/adcore/api/add";
 const getURL = "http://localhost:9090/adcore/api/data/";
@@ -13,7 +13,6 @@ const CreateUpdateComponent = () => {
   const [readOnly, setReadOnly] = useState(false);
 
   const { id } = useParams();
-  const location = useLocation();
   const history = useHistory();
 
   let extendedURL = "";
@@ -34,8 +33,6 @@ const CreateUpdateComponent = () => {
       })
       .catch((err) => console.log(err));
   }, [id]);
-
-  // console.log(eData.name ? eData.name : "");
 
   const handleInputReadOnlyChange = () => {
     setReadOnly(!readOnly);

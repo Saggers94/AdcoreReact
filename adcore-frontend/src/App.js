@@ -5,9 +5,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import DataCollectionComponent from "./components/DataCollectionComponent";
 import DetailDataComponent from "./components/DetailDataComponent";
 import AboutComponent from "./components/AboutComponent";
-import ContactComponent from "./components/ContactComponent";
-import LoginComponent from "./components/LoginComponent";
-import RegisterComponent from "./components/RegisterComponent";
 import CreateComponent from "./components/CreateUpdateComponent";
 import CreateUpdateComponent from "./components/CreateUpdateComponent";
 
@@ -38,15 +35,6 @@ function App() {
           <Route exact path="/about">
             <AboutComponent />
           </Route>
-          <Route exact path="/contact">
-            <ContactComponent />
-          </Route>
-          {/* <Route exact path="/login">
-            <LoginComponent />
-          </Route>
-          <Route exact path="/register">
-            <RegisterComponent />
-          </Route> */}
         </Switch>
       </Router>
 
