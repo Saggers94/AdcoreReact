@@ -8,9 +8,10 @@ const AboutComponent = () => {
           <h1 class="mt-5">About This Website</h1>
           <p class="lead">
             This website with a front end of React.js, bootstrap and backend Api
-            in java springboot/hibernate and is the proof of my Professional
-            Skills, ability to work under time constraint, programming
-            experience and independent problem solving.
+            in java springboot/hibernate that i developed in just 15 hours is
+            the proof of my Professional Skills, programming experience,
+            independent problem solving and ability to work under time
+            constraint.
           </p>
         </div>
       </div>

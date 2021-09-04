@@ -34,7 +34,7 @@ const DataCollectionComponent = () => {
   }
 
   return (
-    <div class="container">
+    <div class="container" style={{ marginBottom: "150px" }}>
       <h1 class="mt-4">
         Data Collection From Adcore
         <a
@@ -47,16 +47,7 @@ const DataCollectionComponent = () => {
       <hr />
       {dataCollection &&
         dataCollection.map((data) => (
-          <div
-            class="row align-items-center"
-            key={data.data_id}
-            id="data"
-            style={
-              data.data_id == dataCollection.length
-                ? { marginBottom: "150px" }
-                : {}
-            }
-          >
+          <div class="row align-items-center" key={data.data_id} id="data">
             <div class="col-lg-12" style={{ paddinLeft: "15px" }}>
               <h2 class="font-weight-light">
                 {data.name}{" "}

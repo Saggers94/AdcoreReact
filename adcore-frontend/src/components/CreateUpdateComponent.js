@@ -91,7 +91,7 @@ const CreateUpdateComponent = () => {
   };
 
   return (
-    <div class="container">
+    <div class="container" style={{ marginBottom: "122px" }}>
       <div class="row justify-content-center mt-3">
         <div class="col-md-8">
           <div class="card">
