@@ -37,7 +37,10 @@ const DataCollectionComponent = () => {
     <div class="container">
       <h1 class="mt-4">
         Data Collection From Adcore
-        <a href="https://springboot-adcore-api.herokuapp.com/adcore/api/export-csv">
+        <a
+          class="ml-3"
+          href="https://springboot-adcore-api.herokuapp.com/adcore/api/export-csv"
+        >
           Download CSV
         </a>
       </h1>
@@ -54,7 +57,7 @@ const DataCollectionComponent = () => {
                 : {}
             }
           >
-            <div class="col-lg-12">
+            <div class="col-lg-12" style={{ paddinLeft: "15px" }}>
               <h2 class="font-weight-light">
                 {data.name}{" "}
                 <i style={{ fontSize: "18px" }}>
@@ -65,7 +68,7 @@ const DataCollectionComponent = () => {
                 <strong>Description: </strong>
                 {data.description}
               </p>
-              <div class="col">
+              <div class="col" style={{ paddingLeft: "0" }}>
                 <Link
                   class="btn btn-info"
                   style={{ marginRight: "5px" }}

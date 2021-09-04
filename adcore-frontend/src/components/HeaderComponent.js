@@ -8,7 +8,7 @@ const HeaderComponent = () => {
         <div class="container">
           <Link
             class="nav-link"
-            style={{ color: "6DA7FA", fontSize: "20px" }}
+            style={{ color: "6DA7FA", fontSize: "24px", paddingLeft: "0" }}
             to="/"
           >
             <b>ADCORE (Exam)</b>
