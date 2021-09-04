@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 
-const baseURL = "http://localhost:9090/adcore/api/data/";
+const baseURL = "https://springboot-adcore-api.herokuapp.com/adcore/api/data/";
 
 const DetailDataComponent = () => {
   const { id } = useParams();

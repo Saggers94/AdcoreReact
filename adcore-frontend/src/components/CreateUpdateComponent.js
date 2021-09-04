@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 
-const createURL = "http://localhost:9090/adcore/api/add";
-const getURL = "http://localhost:9090/adcore/api/data/";
-const updateURL = "http://localhost:9090/adcore/api/update/";
+const createURL = "https://springboot-adcore-api.herokuapp.com/adcore/api/add";
+const getURL = "https://springboot-adcore-api.herokuapp.com/adcore/api/data/";
+const updateURL =
+  "https://springboot-adcore-api.herokuapp.com/adcore/api/update/";
 
 const CreateUpdateComponent = () => {
   const [eData, setEData] = useState({});
@@ -71,7 +72,6 @@ const CreateUpdateComponent = () => {
       parent: parent,
       read_only: readOnly,
     };
-    console.log(createdData);
 
     fetch(createURL, {
       method: "POST",

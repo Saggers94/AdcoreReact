@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const baseUrl = "http://localhost:9090/adcore/api/";
+const baseUrl = "https://springboot-adcore-api.herokuapp.com/adcore/api/";
 
 const DataCollectionComponent = () => {
   const [dataCollection, setDataCollection] = useState([]);
@@ -36,8 +36,10 @@ const DataCollectionComponent = () => {
   return (
     <div class="container">
       <h1 class="mt-4">
-        Data Collection From Adcore{" "}
-        <a href="http://localhost:9090/adcore/api/export-csv">Download CSV</a>
+        Data Collection From Adcore
+        <a href="https://springboot-adcore-api.herokuapp.com/adcore/api/export-csv">
+          Download CSV
+        </a>
       </h1>
       <hr />
       {dataCollection &&
